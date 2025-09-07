@@ -4,12 +4,14 @@ plugins {
 }
 
 android {
+    // Use a modern compileSdk for compatibility with recent Android resources.
     namespace 'io.github.edufolly.flutterbluetoothserial'
-    compileSdk 35
+    compileSdk 36
 
     defaultConfig {
+        // Keep minSdk at 23 to match the host app expectations in this workspace.
         minSdk 23
-        targetSdk 35
+        targetSdk 36
         consumerProguardFiles 'consumer-rules.pro'
     }
 
@@ -17,9 +19,14 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-    kotlinOptions { jvmTarget = '17' }
 
-    lint { abortOnError false }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    lint {
+        abortOnError false
+    }
 }
 
 dependencies {
